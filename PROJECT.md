@@ -14,7 +14,7 @@
 
 相册已通过 GitHub Actions 发布到 `https://photos.wutongyu.site/`，使用 GitHub Pages 自定义域名证书并强制 HTTPS。`photos` DNS 为指向 `wutongyuonce.github.io` 的 CNAME，保持 DNS only；`images` 由 R2 自定义域名提供图片。
 
-R2 只读连接、图片域名 CORS、静态产物、线上 RSS，以及桌面和手机空相册已验证。目前桶中没有照片，真实照片处理、原图查看及照片深链接尚待验收。博客中的相册占位入口在照片验收后替换为正式地址。
+R2 只读连接、图片域名 CORS、真实照片处理、静态产物、线上 RSS、原图查看及照片深链接已验证。首次导入的两张照片均可正常展示，桌面和手机布局没有横向溢出。博客“更多 → 相册”入口的正式地址更新见 [YuBlog PR #86](https://github.com/wutongyuonce/YuBlog/pull/86)，合并发布后生效。
 
 ## 配置入口
 
