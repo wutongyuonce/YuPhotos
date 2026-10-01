@@ -41,11 +41,12 @@ export function ogImagePlugin(options: OGImagePluginOptions = {}): Plugin {
           photoCount: 4,
         })
         ogImagePath = `/${fileName}`
-        console.info(`🖼️  OG image generated: ${ogImagePath}`)
+        this.info(`🖼️  OG image generated: ${ogImagePath}`)
 
         // 清理旧的 OG 图片
         await cleanupOldOGImages(3)
-      } catch (error) {
+      }
+      catch (error) {
         console.error('Failed to generate OG image:', error)
       }
     },
@@ -57,6 +58,8 @@ export function ogImagePlugin(options: OGImagePluginOptions = {}): Plugin {
           return html
         }
 
+        const imageUrl = siteUrl ? new URL(ogImagePath, siteUrl).href : ogImagePath
+
         // 生成 meta 标签
         const metaTags = `
     <!-- Open Graph / Facebook -->
@@ -64,7 +67,7 @@ export function ogImagePlugin(options: OGImagePluginOptions = {}): Plugin {
     <meta property="og:url" content="${siteUrl}" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
-    <meta property="og:image" content="${siteUrl}${ogImagePath}" />
+    <meta property="og:image" content="${imageUrl}" />
     <meta property="og:site_name" content="${siteName}" />
 
     <!-- Twitter -->
@@ -72,7 +75,7 @@ export function ogImagePlugin(options: OGImagePluginOptions = {}): Plugin {
     <meta property="twitter:url" content="${siteUrl}" />
     <meta property="twitter:title" content="${title}" />
     <meta property="twitter:description" content="${description}" />
-    <meta property="twitter:image" content="${siteUrl}${ogImagePath}" />
+    <meta property="twitter:image" content="${imageUrl}" />
 
     <!-- Additional meta tags -->
     <meta name="description" content="${description}" />

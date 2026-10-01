@@ -1,0 +1,9 @@
+[
+  {
+    "AllowedOrigins": ["https://photos.wutongyu.site", "http://localhost:1924", "http://127.0.0.1:1924"],
+    "AllowedMethods": ["GET", "HEAD"],
+    "AllowedHeaders": ["*"],
+    "ExposeHeaders": ["ETag", "Content-Length", "Accept-Ranges", "Content-Range"],
+    "MaxAgeSeconds": 3600
+  }
+]

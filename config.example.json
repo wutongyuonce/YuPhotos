@@ -1,8 +1,8 @@
 {
-  "name": "Innei's Afilmory",
-  "title": "Innei's Afilmory",
-  "description": "Capturing beautiful moments in life, documenting daily warmth and emotions through my lens.",
-  "url": "https://afilmory.innei.in/",
+  "name": "YuPhotos",
+  "title": "梧桐雨の相册",
+  "description": "光影与日常，记录生活中的片刻。",
+  "url": "https://photos.wutongyu.site/",
   "accentColor": "#007bff",
   "viewer": {
     "regions": {
@@ -11,13 +11,13 @@
     }
   },
   "author": {
-    "name": "Innei",
-    "url": "https://innei.in/",
-    "avatar": "https://cdn.jsdelivr.net/gh/Innei/static@master/avatar.png"
+    "name": "梧桐雨",
+    "url": "https://www.wutongyu.site/",
+    "avatar": "https://www.wutongyu.site/avatar.webp"
   },
   "social": {
-    "github": "",
-    "twitter": ""
+    "github": "https://github.com/wutongyuonce",
+    "twitter": "https://x.com/Yu2002964143523"
   },
   "feed": {
     "folo": {

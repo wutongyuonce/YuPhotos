@@ -199,7 +199,7 @@ export default defineConfig(() => {
       }),
 
       astPlugin,
-      tsconfigPaths(),
+      tsconfigPaths({ projects: [path.join(__dirname, 'tsconfig.json')] }),
       checker({
         typescript: true,
         enableBuild: true,

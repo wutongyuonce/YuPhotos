@@ -7,14 +7,13 @@ import type { Plugin } from 'vite'
 import type { SiteConfig } from '../../../../site.config'
 import { MANIFEST_PATH } from './__internal__/constants'
 
-const { generateRSSFeed } = await tsImport('@afilmory/utils', import.meta.url)
-
 export function createFeedSitemapPlugin(siteConfig: SiteConfig): Plugin {
   return {
     name: 'feed-sitemap-generator',
     apply: 'build',
-    generateBundle() {
+    async generateBundle() {
       try {
+        const { generateRSSFeed } = await tsImport('@afilmory/utils', import.meta.url)
         const photosData: PhotoManifestItem[] = JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8')).data
 
         // Sort photos by date taken (newest first)
@@ -42,9 +41,10 @@ export function createFeedSitemapPlugin(siteConfig: SiteConfig): Plugin {
           source: sitemapXml,
         })
 
-        console.info(`Generated RSS feed with ${sortedPhotos.length} photos`)
-        console.info(`Generated sitemap with ${sortedPhotos.length + 1} URLs`)
-      } catch (error) {
+        this.info(`Generated RSS feed with ${sortedPhotos.length} photos`)
+        this.info(`Generated sitemap with ${sortedPhotos.length + 1} URLs`)
+      }
+      catch (error) {
         console.error('Error generating RSS feed and sitemap:', error)
       }
     },
@@ -67,7 +67,7 @@ function generateSitemap(photos: PhotoManifestItem[], config: SiteConfig): strin
     .map((photo) => {
       const lastmod = new Date(photo.lastModified || photo.dateTaken).toISOString()
       return `  <url>
-    <loc>${config.url}/photos/${encodeURIComponent(photo.id)}</loc>
+    <loc>${config.url.replace(/\/+$/, '')}/photos/${encodeURIComponent(photo.id)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

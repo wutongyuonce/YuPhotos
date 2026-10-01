@@ -1,3 +1,7 @@
+## YuPhotos
+
+梧桐雨的独立相册，基于 Afilmory。网页使用 GitHub Pages，照片原图使用 Cloudflare R2，目标域名为 `photos.wutongyu.site`。项目配置、当前部署状态与操作入口见 [YuPhotos 项目说明](PROJECT.md)；下方保留上游介绍。
+
 <p align="center">
   <img src="https://github.com/Afilmory/assets/blob/main/afilmory-readme-2:1.webp?raw=true" alt="Afilmory" width="100%" />
 </p>
