@@ -31,6 +31,8 @@ R2 只读连接、图片域名 CORS、真实照片处理、静态产物、线上
 | 发布流程与验收             | `.github/workflows/build.yml`、`scripts/verify-yuphotos-build.mjs`                               |
 | 自定义域名产物             | `apps/web/public/CNAME`                                                                          |
 
+照片来源为 R2，不依赖 Git 子模块。部署 Action 使用 Node.js 24 运行，照片处理与前端构建使用 Node.js 22。
+
 GitHub Actions 默认使用模板配置。本地模板更新后，需要同步已有的 `config.json` 和 `builder.config.ts`；安装脚本不会覆盖它们。照片、缩略图、清单和构建产物由流水线重新生成，不提交到源码仓库。
 
 ## Cloudflare 与 GitHub 设置
