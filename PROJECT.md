@@ -12,7 +12,9 @@
 
 访客打开相册后，浏览器自动读取图片域名。两个子域名共用现有 `wutongyu.site`，无需另购域名。这里部署的是静态 SPA，不需要后台、数据库或 SSR。
 
-GitHub Pages 的发布源已设置为 GitHub Actions。流水线和站点配置已准备好；Cloudflare R2 账户配置、真实照片导入、自定义域名 DNS 和首次线上发布尚未完成。本地静态构建、配置检查、产物检查与 Web 类型检查使用空清单和模拟照片条目验证，不能替代真实 R2 读取和线上验收。
+相册已通过 GitHub Actions 发布到 `https://photos.wutongyu.site/`，使用 GitHub Pages 自定义域名证书并强制 HTTPS。`photos` DNS 为指向 `wutongyuonce.github.io` 的 CNAME，保持 DNS only；`images` 由 R2 自定义域名提供图片。
+
+R2 只读连接、图片域名 CORS、静态产物、线上 RSS，以及桌面和手机空相册已验证。目前桶中没有照片，真实照片处理、原图查看及照片深链接尚待验收。博客中的相册占位入口在照片验收后替换为正式地址。
 
 ## 配置入口
 
